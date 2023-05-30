@@ -15,3 +15,7 @@ SELECT UF, Nome from kdt group by IBGE;
 SELECT IBGE, GROUP_CONCAT(' ', CNES, ' - ', NOME,' 'SEPARATOR ' | ') AS UBS_dos_Municípios
 FROM kdt
 group by IBGE;
+
+SELECT kdt.IBGE, GROUP_CONCAT(' ', kdt.CNES, ' - ', kdt.NOME,' 'SEPARATOR ' | ') AS UBS_dos_Municípios
+FROM kdt
+GROUP BY IBGE;

@@ -21,3 +21,15 @@ SELECT DISTINCT Centro.uf, CENTRO, bairros.BAIRROS FROM CENTRO INNER JOIN BAIRRO
 ON centro.uf = bairros.uf;
 
 SELECT * FROM BAIRROS;
+
+SELECT * FROM CENTRO, BAIRROS;
+
+SELECT kuf.uf, COUNT(CNES) AS BAIRROS, (SELECT COUNT(CNES)
+FROM kdt WHERE BAIRRO = 'CENTRO' AND kdt.uf = kuf.codigo_uf) AS CENTRO,
+(SELECT COUNT(CNES) FROM kdt WHERE kdt.uf = kuf.codigo_uf) AS TotalNoEstado
+FROM kdt
+INNER JOIN kuf
+ON kdt.UF = kuf.codigo_uf
+WHERE kdt.BAIRRO <> 'CENTRO'
+GROUP BY kdt.uf
+ORDER BY kuf.uf;

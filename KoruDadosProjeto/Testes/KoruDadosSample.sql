@@ -2,13 +2,13 @@ CREATE DATABASE korubs;
 
 USE korubs;
 
+DROP DATABASE ubs_koru;
+
 CREATE TABLE korubs_uf (
 codigo_uf INT PRIMARY KEY NOT NULL,
 unidade_da_federacao VARCHAR(25) NOT NULL,
 uf CHAR(2) NOT NULL 
 );
-
-DROP DATABASE ubs_koru;
 
 CREATE TABLE korubs_data (
 CNES INT PRIMARY KEY NOT NULL,
@@ -77,3 +77,5 @@ DICA: Observe como são estruturados os dados que descrevem os municípios/distr
 SELECT IBGE, NOME
 FROM korubs_data
 ORDER BY IBGE;
+
+ALTER TABLE KDT RENAME COLUMN cnes TO CNES;
